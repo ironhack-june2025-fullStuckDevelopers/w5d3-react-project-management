@@ -1,12 +1,19 @@
+import { Route, Routes } from "react-router-dom"
 import ProjectListPage from "./pages/ProjectListPage"
+import HomePage from "./pages/HomePage"
+import Navbar from "./components/Navbar"
 
 function App() {
 
   return (
     <>
-      <h1>React Project Management</h1>
+      <Navbar />
 
-      <ProjectListPage />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/projects" element={<ProjectListPage />} />
+      </Routes>
+
     </>
   )
 }
