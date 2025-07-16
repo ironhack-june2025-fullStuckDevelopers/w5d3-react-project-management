@@ -3,24 +3,27 @@ import { useEffect, useState } from "react";
 
 import Loader from "../components/Loader";
 
+import { BASE_URL } from "../config/api";
 
-const BASE_URL = "https://project-management-api-4641927fee65.herokuapp.com"
+
 
 function ProjectListPage() {
 
     const [projects, setProjects] = useState(null)
 
     useEffect(() => {
-        axios.get(BASE_URL + "/projects")
+        axios.get(`${BASE_URL}/projects`)
             .then(response => {
                 setProjects(response.data)
             })
             .catch(e => console.log("Error getting projects from the API...", e));
     }, [])
 
+
     if (projects === null) {
         return <Loader />
     }
+
 
     return (
         <div>
