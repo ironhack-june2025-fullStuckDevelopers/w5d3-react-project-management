@@ -31,18 +31,20 @@ function ProjectListPage() {
         <div>
             <h1>Number of projects: {projects.length} </h1>
 
-            {projects.map((projectObj) => {
-                return (
-                    <div className="card" key={projectObj.id}>
-                        <h3>{projectObj.title}</h3>
-                        <p>{projectObj.description}</p>
+            <div className="card-list">            
+                {projects.map((projectObj) => {
+                    return (
+                        <div className="card" key={projectObj.id}>
+                            <h3>{projectObj.title}</h3>
+                            <p>{projectObj.description}</p>
 
-                        <Link to={`/projects/${projectObj.id}`}>
-                            <button>More details</button>
-                        </Link>
-                    </div>
-                )
-            })}
+                            <Link to={`/projects/${projectObj.id}`}>
+                                <button>More details</button>
+                            </Link>
+                        </div>
+                    )
+                })}
+            </div>
         </div>
     );
 }
